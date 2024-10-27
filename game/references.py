@@ -30,6 +30,13 @@ commands = {
         "expects" : KeywordTypes.ANY,
         "supports" : [KeywordTypes.ANY],
         "description" : f"=====\ncommand : info\nThis command can be used to provide information about most anything.\naliases: ['check', 'information', 'info', 'whatis', 'what', 'describe', 'description']\nparameters: any\n====="
+    },
+    "help" : {
+        "code": "help",
+        "aliases" : ["h", "commands", "help"],
+        "expects" : KeywordTypes.NONE,
+        "supports" : [],
+        "description" : f"=====\nCommands:\n- yes\n- no\n- exit\n- info\n- help\n\nArguments:\n- *y\n- *n\n====="
     }
 }
 

@@ -26,7 +26,9 @@ def verifyArgument(keyword, command):
     # print(command)
     # print(keyword)
     if(command not in commands):
-        return errors["parseArgumentCommandErr"]["code"]
+        return errors["parseCommandErr"]["code"]
+    if(keyword not in arguments):
+        return errors["parseArgumentErr"]["code"]
     if(KeywordTypes.ANY in commands[command]["supports"]):
         return keyword
     if(keyword not in commands[command]["supports"]):
@@ -170,6 +172,8 @@ def executeCommand(keywordList, allObjects):
             return close(args, allObjects)
         case "info":
             return info(parameters, args, allObjects)
+        case "help":
+            return help()
         
 def close(args, allObjects):
     if("*y" in args):
@@ -188,7 +192,10 @@ def close(args, allObjects):
             return ExecutionCodes.CANCEL
 
 def info(params, args, allObjects):
-    if(len(params) == 0):
+    if(len(params) == 0 ):
+        if(len(args) == 0):
+            printErrorMessage("invalidInfoParameter", "None")
+            return ExecutionCodes.CANCEL
         params.append(args[0])
     
     testForObj = findObjectFromUID(params[0], allObjects)
@@ -206,6 +213,10 @@ def info(params, args, allObjects):
     printErrorMessage("invalidInfoParameter", params[0])
     return ExecutionCodes.CANCEL
     
+def help():
+    print(commands["help"]["description"])
+    return ExecutionCodes.SUCCESS
+
 def findObjectFromUID(uid, allObjects):
     for obj in allObjects:
         if(uid == obj.uid):
