@@ -36,7 +36,7 @@ commands = {
         "aliases" : ["h", "commands", "help"],
         "expects" : KeywordTypes.NONE,
         "supports" : [],
-        "description" : f"=====\nCommands:\n- yes\n- no\n- exit\n- info\n- help\n\nArguments:\n- *y\n- *n\n====="
+        "description" : f"=====\nCommands:\n- yes: confirmation\n- no: denial\n- exit: exit program\n- info: deeper explanations\n- help: this menu\n\nArguments:\n- *y: force yes\n- *n: force no\n====="
     }
 }
 
