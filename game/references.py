@@ -21,7 +21,7 @@ commands = {
         "code" : "exit", 
         "aliases" : ["exit", "x", "quit"],
         "expects" : KeywordTypes.ARGUMENT,
-        "supports" : ["*y"],
+        "supports" : ["*y", "*n"],
         "description" : f"=====\ncommand : exit\nThis command is used to exit the program at any point.\naliases: ['exit', 'x', 'quit']\nparameters: ['*y', '*n']\n====="
         },
     "info" : {
