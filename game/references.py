@@ -29,7 +29,7 @@ commands = {
         "aliases" : ["check", "information", "info", "whatis", "describe", "description"],
         "expects" : KeywordTypes.ANY,
         "supports" : [KeywordTypes.ANY],
-        "description" : f"=====\ncommand : info\nThis command can be used to provide information about most anything.\naliases: ['check', 'information', 'info', 'whatis', 'what', 'describe', 'description']\nparameters: any\n====="
+        "description" : f"=====\ncommand : info\nThis command can be used to provide information about most anything.\naliases: ['check', 'information', 'info', 'whatis', 'describe', 'description']\nparameters: any\n====="
     },
     "help" : {
         "code": "help",
