@@ -9,6 +9,7 @@ class KeywordTypes(Enum):
     PARAMETER = 5
 
 class ExecutionCodes(Enum):
-    EXIT = 0
-    CANCEL = 1
-    SUCCESS = 2
+    EXIT = 100
+    CANCEL = 101
+    SUCCESS = 102
+    DIVERT = 103

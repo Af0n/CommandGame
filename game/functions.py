@@ -194,8 +194,8 @@ def close(args, allObjects):
 def info(params, args, allObjects):
     if(len(params) == 0 ):
         if(len(args) == 0):
-            printErrorMessage("invalidInfoParameter", "None")
-            return ExecutionCodes.CANCEL
+            help()
+            return ExecutionCodes.DIVERT
         params.append(args[0])
     
     testForObj = findObjectFromUID(params[0], allObjects)
