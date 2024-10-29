@@ -194,8 +194,8 @@ def close(args, allObjects):
 def info(params, args, allObjects):
     if(len(params) == 0 ):
         if(len(args) == 0):
-            help()
-            return ExecutionCodes.DIVERT
+            print(commands["info"]["description"])
+            return ExecutionCodes.SUCCESS
         params.append(args[0])
     
     testForObj = findObjectFromUID(params[0], allObjects)
