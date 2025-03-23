@@ -15,8 +15,8 @@ def verifyCommand(keyword):
         
     return errors["parseCommandErr"]["code"]
 
-def verifyIdentifier(keyword, allObjects):
-    for obj in allObjects:
+def verifyIdentifier(keyword, collection):
+    for obj in collection:
         if(keyword in obj.aliases):
             return obj.uid
         
@@ -36,7 +36,8 @@ def verifyArgument(keyword, command):
     
     return keyword
 
-def parseCommand(command, allObjects):
+def parseCommand(command, knownObjects):
+    command = command.lower()
     keywordList = command.split()
     # print(keywordList)
 
@@ -60,7 +61,7 @@ def parseCommand(command, allObjects):
                     doEvalCommands = False
                     continue
 
-                test = verifyIdentifier(keywordList[i], allObjects)
+                test = verifyIdentifier(keywordList[i], knownObjects)
                 # we have found a suitable identifier
                 if(type(test) is not int):
                     expect = KeywordTypes.COMMAND
@@ -82,7 +83,7 @@ def parseCommand(command, allObjects):
                 return errors["unknownKeywordErr"]["code"]
             case KeywordTypes.PARAMETER:
                 # print("Param Case")
-                test = verifyIdentifier(keywordList[i], allObjects)
+                test = verifyIdentifier(keywordList[i], knownObjects)
                 # we have found a suitable identifier
                 if(type(test) is not int):
                     expect = KeywordTypes.COMMAND
@@ -103,7 +104,7 @@ def parseCommand(command, allObjects):
                 return errors["unknownKeywordErr"]["code"]
             case KeywordTypes.IDENTIFIER:
                 # print("ID Case")
-                test = verifyIdentifier(keywordList[i], allObjects)
+                test = verifyIdentifier(keywordList[i], knownObjects)
                 # we have found a suitable identifier
                 if(type(test) is not int):
                     expect = KeywordTypes.COMMAND

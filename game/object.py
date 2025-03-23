@@ -21,4 +21,7 @@ class Object():
     def command(self, command):
         match command:
             case "info":
-                print(f"=====\nobject : {self.name}\n{self.desc}\nidentifier: {self.uid}\naliases: {self.aliases}\n=====")
+                self.info()
+    
+    def info(self):
+        print(f"=====\nobject : {self.name}\n{self.desc}\nidentifier: {self.uid}\naliases: {self.aliases}\n=====")
